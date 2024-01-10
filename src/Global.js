@@ -1,5 +1,5 @@
 export default class Global {
-    static SERVER_URL = "http://localhost:8080"
+    static SERVER_URL = "https://trelloclone-api.onrender.com"
     static async _fetch(url, body = null) {
         let payload = {
             'headers': {
