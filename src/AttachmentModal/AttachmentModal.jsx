@@ -2,7 +2,7 @@ import React from 'react';
 import './AttachmentModal.css'
 import ModalTriggerer from './ModalTriggerer';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { FaFileUpload } from "react-icons/fa";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Global from '../Global';
@@ -18,8 +18,12 @@ const style = {
     p: 4,
 };
 function AttachmentModal(props) {
-    const [cardId, setCardId] = React.useState(null)
+    const [card, setCardId] = React.useState(null)
     const [open, setOpen] = React.useState(false);
+    const [fileList, setFileList] = React.useState([])
+    const fileUploadRef = React.useRef(null)
+    const [file, setFile] = React.useState(null);
+
     React.useEffect(() => {
         ModalTriggerer.subscribe({
             "open": (id) => {
@@ -27,9 +31,9 @@ function AttachmentModal(props) {
                 setCardId(id)
                 setOpen(true)
                 const { colId, cardId } = id
-                Global._fetch(`/countAttachments/${colId}/${cardId}`)
-                    .then((data) => {
-                        console.log(data)
+                Global._fetch(`/getAttachments/${colId}/${cardId}`)
+                    .then(({ files }) => {
+                        setFileList(files)
                     })
             }
         })
@@ -37,6 +41,11 @@ function AttachmentModal(props) {
             ModalTriggerer.unsubscribe()
         }
     }, [])
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        setFile(file)
+        // Store the file in state or proceed with upload
+    };
     return (
         <div>
             <Modal
@@ -49,11 +58,28 @@ function AttachmentModal(props) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {cardId?.colId + "-" + cardId?.cardId} Attachments
+                        {card?.colId + "-" + card?.cardId} Attachments
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    <input type="file" name="" id="" ref={fileUploadRef} onChange={(e) => {
+                        handleFileChange(e)
+                    }} style={{
+                        display: 'none'
+                    }} />
+                    <div className="attachedFilesHeader">
+                        <p>{fileList.length} Attachment(s)</p>
+                        <FaFileUpload onClick={() => {
+                            fileUploadRef.current.click()
+                        }} />
+                    </div>
+                    <button onClick={() => {
+                        const { colId, cardId } = card
+                        Global.uploadFile(file, {
+                            ext: file?.type,
+                            filename: file?.name,
+                            columnId: colId,
+                            cardId
+                        })
+                    }}>Upload</button>
                 </Box>
             </Modal>
         </div>
