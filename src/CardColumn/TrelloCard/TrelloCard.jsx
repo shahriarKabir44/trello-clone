@@ -5,6 +5,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import { PiChatsCircleLight } from "react-icons/pi";
 import { IoMdAttach } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
+import ModalTriggerer from '../../AttachmentModal/ModalTriggerer';
 
 function TrelloCard(props) {
     return (
@@ -40,7 +41,9 @@ function TrelloCard(props) {
                     <PiChatsCircleLight />
                     <p>20</p>
                 </div>
-                <div className="counter">
+                <div className="counter" onClick={() => {
+                    ModalTriggerer.openModal(props.id)
+                }}>
                     <IoMdAttach />
                     <p>5</p>
                 </div>
@@ -49,7 +52,7 @@ function TrelloCard(props) {
                     <p>{(new Date()).toLocaleDateString('en-GB').split('/').join('-')}</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

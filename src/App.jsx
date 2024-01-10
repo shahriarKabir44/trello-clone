@@ -1,9 +1,11 @@
 import './App.css';
+import AttachmentModal from './AttachmentModal/AttachmentModal';
 import CardColumn from './CardColumn/CardColumn';
 
 function App() {
 	return (
 		<div className="App">
+			<AttachmentModal />
 			<div className="columnsContainer">
 				<CardColumn title={'To-Do'} numItems={10} />
 				<CardColumn title={'Doing'} numItems={5} />
