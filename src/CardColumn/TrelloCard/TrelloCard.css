@@ -1,5 +1,5 @@
 img.userImg {
-    height: 50px;
+    height: 30px;
     aspect-ratio: 1;
     border-radius: 50px;
     object-fit: cover;
@@ -12,9 +12,74 @@ img.userImg {
 }
 
 .TrelloCard {
-    min-width: 400px;
+    min-width: 350px;
+    width: 350px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .cardHeader {
     display: flex;
+    justify-content: space-between;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.textContainer {
+    display: flex;
+    align-items: center;
+    width: 350px;
+}
+
+p.content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+.taskCounter {
+    display: flex;
+    align-items: center;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.userContainer>p {
+    height: 30px;
+    width: 30px;
+    background: var(--off_white);
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.additionalInfoCounter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.counter>p {
+    margin: 0;
 }

@@ -4,7 +4,7 @@ import CardColumn from './CardColumn/CardColumn';
 function App() {
 	return (
 		<div className="App">
-			<CardColumn />
+			<CardColumn title={'To-Do'} />
 		</div>
 	);
 }

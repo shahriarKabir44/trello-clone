@@ -1,10 +1,15 @@
 import React from 'react';
 import './CardColumn.css'
 import TrelloCard from './TrelloCard/TrelloCard';
-function CardColumn(props) {
+function CardColumn({ title }) {
     return (
-        <div>
-            <TrelloCard />
+        <div className='CardColumn'>
+            <div className="columnHeader">{title}</div>
+            <div className="cardsContainer">
+                {(new Array(10).fill(0)).map((_, i) => {
+                    return <TrelloCard key={i} id={title + '-' + i} />
+                })}
+            </div>
         </div>
     );
 }

@@ -18,34 +18,35 @@ function TrelloCard(props) {
                     <img src="/person.jpeg" alt="" className="userImg" />
                     <p>Abdul Kader</p>
                 </div>
-                <div className="contentContainer">
-                    <div className="textContainer">
-                        <LayersIcon />
-                        <p className='content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div className="taskCounter">
-                        <AssignmentIcon />
-                        <p>1/2</p>
-                    </div>
+
+            </div>
+            <div className="contentContainer">
+                <div className="textContainer">
+                    <LayersIcon />
+                    <p className='content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div className="additionalInfoCounter">
-                    <div className="userContainer">
-                        <img src="/person.jpeg" alt="" className="userImg" />
-                        <img src="/person.jpeg" alt="" className="userImg" />
-                        <p>10+</p>
-                    </div>
-                    <div className="counter">
-                        <PiChatsCircleLight />
-                        <p>20</p>
-                    </div>
-                    <div className="counter">
-                        <IoMdAttach />
-                        5
-                    </div>
-                    <div className="counter">
-                        <FaCalendarAlt />
-                        <p>{(new Date()).toLocaleDateString('en-GB').split('/').join('-')}</p>
-                    </div>
+                <div className="taskCounter">
+                    <AssignmentIcon />
+                    <p>1/2</p>
+                </div>
+            </div>
+            <div className="additionalInfoCounter">
+                <div className="userContainer">
+                    <img src="/person.jpeg" alt="" className="userImg" />
+                    <img src="/person.jpeg" alt="" className="userImg" />
+                    <p>10+</p>
+                </div>
+                <div className="counter">
+                    <PiChatsCircleLight />
+                    <p>20</p>
+                </div>
+                <div className="counter">
+                    <IoMdAttach />
+                    5
+                </div>
+                <div className="counter">
+                    <FaCalendarAlt />
+                    <p>{(new Date()).toLocaleDateString('en-GB').split('/').join('-')}</p>
                 </div>
             </div>
         </div>
