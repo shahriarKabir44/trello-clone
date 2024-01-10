@@ -1,0 +1,20 @@
+img.userImg {
+    height: 50px;
+    aspect-ratio: 1;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.userInfoContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.TrelloCard {
+    min-width: 400px;
+}
+
+.cardHeader {
+    display: flex;
+}
