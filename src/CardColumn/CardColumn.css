@@ -1,5 +1,4 @@
 .CardColumn {
-    width: 400px;
     /* max-height: 100vh; */
     /* overflow-y: auto; */
     background: var(--off_white);
@@ -9,10 +8,36 @@
     padding: 20px;
 }
 
+.columnsContainer {
+    display: flex;
+    max-width: 100vw;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.columnHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p.cardCounter {
+    background: #e8eef3;
+    padding: 10px;
+}
+
+.columnHeader>p {
+    margin: 0;
+    border-radius: 5px;
+}
+
 .cardsContainer {
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 120px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    width: 420px;
     align-items: center;
+    gap: 20px;
 }

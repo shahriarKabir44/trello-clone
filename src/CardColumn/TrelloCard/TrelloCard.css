@@ -27,7 +27,6 @@ img.userImg {
 .contentContainer {
     display: flex;
     justify-content: space-between;
-    width: 350px;
 }
 
 .textContainer {
