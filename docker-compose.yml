@@ -1,12 +1,11 @@
 version: '3.4'
 
 services:
-  trelloclone:
-    image: trelloclone
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3000:3000
+    trelloclone:
+        image: shahriarkabir/trello-clone:latest
+        ports:
+            - 3000:3000
+    trelloclone_backend:
+        image: shahriarkabir/trello-clone-backend:latest
+        ports:
+            - 8080:8080
