@@ -42,7 +42,7 @@ function TrelloCard(props) {
                 </div>
                 <div className="counter">
                     <IoMdAttach />
-                    5
+                    <p>5</p>
                 </div>
                 <div className="counter">
                     <FaCalendarAlt />

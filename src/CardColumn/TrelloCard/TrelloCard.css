@@ -79,6 +79,7 @@ p.content {
     cursor: pointer;
 }
 
-.counter>p {
+.counter>* {
     margin: 0;
+    font-size: 15px;
 }
