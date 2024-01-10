@@ -58,8 +58,6 @@ function AttachmentModal(props) {
             file,
             index: selectedFiles.length
         }])
-        console.log(file)
-        // Store the file in state or proceed with upload
     };
     return (
         <div>
@@ -92,7 +90,6 @@ function AttachmentModal(props) {
                         {selectedFiles.map((file, index) => <div key={index} className="selectedFile">
                             <p>{file.file.name}</p>
                             <FaRegTrashAlt onClick={() => {
-                                console.log(file.file)
                                 setSelectedFiles(selectedFiles.filter(file => file.index !== index))
                             }} />
                         </div>)}
@@ -109,7 +106,9 @@ function AttachmentModal(props) {
                         })
                         Promise.all(promises).then(() => {
                             getAttachments()
+                            ModalTriggerer.refreshTriggererCard()
                             setSelectedFiles([])
+
                         })
                     }}>Upload</button>}
                     <div className="attachedFileContainer">

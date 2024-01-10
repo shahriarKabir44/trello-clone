@@ -10,11 +10,14 @@ import Global from '../../Global';
 
 function TrelloCard({ columnId, cardId }) {
     const [numAttachments, setNumAttachments] = React.useState(0)
-    React.useEffect(() => {
+    function countAttachments() {
         Global._fetch(`/countAttachments/${columnId}/${cardId}`)
             .then(({ count }) => {
                 setNumAttachments(count)
             })
+    }
+    React.useEffect(() => {
+        countAttachments()
     }, [])
     return (
         <div className='TrelloCard'>
@@ -50,7 +53,12 @@ function TrelloCard({ columnId, cardId }) {
                     <p>20</p>
                 </div>
                 <div className="counter" onClick={() => {
-                    ModalTriggerer.openModal({ columnId, cardId })
+                    ModalTriggerer.openModal({ columnId, cardId }, {
+                        "refresh": () => {
+                            countAttachments()
+
+                        }
+                    })
                 }}>
                     <IoMdAttach />
                     <p>{numAttachments}</p>

@@ -7,9 +7,9 @@ function App() {
 		<div className="App">
 			<AttachmentModal />
 			<div className="columnsContainer">
-				<CardColumn title={'To-Do'} numItems={10} />
-				<CardColumn title={'Doing'} numItems={5} />
-				<CardColumn title={'Done'} numItems={20} />
+				<CardColumn title={'To-Do'} svgColor={"#d21010"} numItems={10} />
+				<CardColumn title={'Doing'} svgColor={"#00b5ff"} numItems={5} />
+				<CardColumn title={'Done'} svgColor={"#ffe700"} numItems={20} />
 				<CardColumn title={'Others'} numItems={4} />
 				<CardColumn title={'Under review'} numItems={9} />
 				<CardColumn title={'Overview'} numItems={13} />
