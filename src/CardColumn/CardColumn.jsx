@@ -10,7 +10,7 @@ function CardColumn({ title, numItems }) {
             </div>
             <div className="cardsContainer">
                 {(new Array(numItems).fill(0)).map((_, i) => {
-                    return <TrelloCard key={i} colId={title} cardId={i} />
+                    return <TrelloCard key={i} columnId={title} cardId={i} />
                 })}
             </div>
         </div>
