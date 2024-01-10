@@ -6,8 +6,17 @@ import { PiChatsCircleLight } from "react-icons/pi";
 import { IoMdAttach } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 import ModalTriggerer from '../../AttachmentModal/ModalTriggerer';
+import Global from '../../Global';
 
 function TrelloCard(props) {
+    const [numAttachments, setNumAttachments] = React.useState(0)
+    React.useEffect(() => {
+        const [colId, cardId] = props.id.split('-')
+        Global._fetch(`/countAttachments/${colId}/${cardId}`)
+            .then(({ count }) => {
+                setNumAttachments(count)
+            })
+    }, [])
     return (
         <div className='TrelloCard'>
             <div className="cardHeader">
@@ -45,7 +54,7 @@ function TrelloCard(props) {
                     ModalTriggerer.openModal(props.id)
                 }}>
                     <IoMdAttach />
-                    <p>5</p>
+                    <p>{numAttachments}</p>
                 </div>
                 <div className="counter">
                     <FaCalendarAlt />
