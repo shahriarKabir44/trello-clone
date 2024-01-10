@@ -8,13 +8,6 @@
     padding: 20px;
 }
 
-.columnsContainer {
-    display: flex;
-    max-width: 100vw;
-    overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 10px;
-}
 
 .columnHeader {
     display: flex;
@@ -25,6 +18,27 @@
 p.cardCounter {
     background: #e8eef3;
     padding: 10px;
+}
+
+
+.cardsContainer::-webkit-scrollbar-track {
+    border-radius: 50px !important;
+    border: 0.1px solid #bbbbbb;
+    overflow: hidden;
+}
+
+.cardsContainer::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 50px !important;
+    background: #e3e3e3;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cardsContainer::-webkit-scrollbar-thumb {
+    height: 10px;
+    border-radius: 50px !important;
+    background: #006cb4;
 }
 
 .columnHeader>p {
