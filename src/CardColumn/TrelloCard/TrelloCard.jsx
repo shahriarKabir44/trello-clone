@@ -8,10 +8,9 @@ import { FaCalendarAlt } from "react-icons/fa";
 import ModalTriggerer from '../../AttachmentModal/ModalTriggerer';
 import Global from '../../Global';
 
-function TrelloCard(props) {
+function TrelloCard({ colId, cardId }) {
     const [numAttachments, setNumAttachments] = React.useState(0)
     React.useEffect(() => {
-        const [colId, cardId] = props.id.split('-')
         Global._fetch(`/countAttachments/${colId}/${cardId}`)
             .then(({ count }) => {
                 setNumAttachments(count)
@@ -51,7 +50,7 @@ function TrelloCard(props) {
                     <p>20</p>
                 </div>
                 <div className="counter" onClick={() => {
-                    ModalTriggerer.openModal(props.id)
+                    ModalTriggerer.openModal({ colId, cardId })
                 }}>
                     <IoMdAttach />
                     <p>{numAttachments}</p>

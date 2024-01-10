@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Global from '../Global';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -21,16 +22,21 @@ function AttachmentModal(props) {
     const [open, setOpen] = React.useState(false);
     React.useEffect(() => {
         ModalTriggerer.subscribe({
-            "open": (cardId) => {
-                console.log(cardId)
-                setCardId(cardId)
+            "open": (id) => {
+                console.log(id)
+                setCardId(id)
                 setOpen(true)
+                const { colId, cardId } = id
+                Global._fetch(`/countAttachments/${colId}/${cardId}`)
+                    .then((data) => {
+                        console.log(data)
+                    })
             }
         })
         return () => {
             ModalTriggerer.unsubscribe()
         }
-    }, [cardId])
+    }, [])
     return (
         <div>
             <Modal
@@ -43,7 +49,7 @@ function AttachmentModal(props) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {cardId}
+                        {cardId?.colId + "-" + cardId?.cardId} Attachments
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
